@@ -1,5 +1,10 @@
+import { Header } from './Components/Header';
 import './global.css';
 
 export const App = () => {
-	return <h1>Todo APP</h1>;
+	return (
+		<>
+			<Header />
+		</>
+	);
 };
