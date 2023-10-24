@@ -35,3 +35,13 @@ body, input, button {
   font-weight: 400;
   font-size: 1rem;
 }
+
+:focus {
+  outline:transparent;
+  box-shadow: 0 0 0 2px var(--purple-500);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}

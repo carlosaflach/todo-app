@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  width: 736px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transform: translate(0, -1.6875rem);
+}
+
+.container input {
+  height: 3.375rem;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 0 0;
+  border-radius: 8px;
+  border: 1px solid var(--gray-700);
+  background: var(--gray-500);
+
+  color: var(--gray-100);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; 
+}
+
+.container input::placeholder {
+  color: var(--gray-300);
+}
