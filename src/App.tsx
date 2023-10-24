@@ -1,5 +1,5 @@
 import { Header } from './Components/Header';
-import { NewTask } from './Components/NewTask';
+import { CreateTodo } from './Components/CreateTodo';
 import './global.css';
 
 export const App = () => {
@@ -7,7 +7,7 @@ export const App = () => {
 		<div>
 			<Header />
 			<main>
-				<NewTask />
+				<CreateTodo />
 			</main>
 		</div>
 	);

@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  width: 736px;
+  width: 46rem;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
