@@ -1,6 +1,7 @@
 import { TaskItem } from './TaskItem';
 import styles from './Tasks.module.css';
 import { v4 as uuidv4 } from 'uuid';
+import Clipboard from '../assets/Clipboard.png';
 
 export interface ITask {
 	id: string;
@@ -9,18 +10,7 @@ export interface ITask {
 }
 
 export const Tasks = () => {
-	const tasks: ITask[] = [
-		{
-			id: uuidv4(),
-			task: 'Task teste',
-			isChecked: true,
-		},
-		{
-			id: uuidv4(),
-			task: 'Task Teste 2',
-			isChecked: false,
-		},
-	];
+	const tasks: ITask[] | [] = [];
 
 	return (
 		<div className={styles.wrapper}>
@@ -35,9 +25,15 @@ export const Tasks = () => {
 				</div>
 			</section>
 			<section className={styles.tasks}>
-				{tasks.map((task) => (
-					<TaskItem task={task} />
-				))}
+				{tasks.length > 0 ? (
+					tasks.map((task) => <TaskItem task={task} />)
+				) : (
+					<div className={styles.empty}>
+						<img src={Clipboard} alt='' />
+						<p>Você ainda não tem tarefas cadastradas</p>
+						<p>Crie tarefas e organize seus itens a fazer</p>
+					</div>
+				)}
 			</section>
 		</div>
 	);
