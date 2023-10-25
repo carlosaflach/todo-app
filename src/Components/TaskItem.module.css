@@ -1,0 +1,28 @@
+.taskItem {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-self: stretch;
+
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray-400);
+  background: var(--gray-500);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  
+}
+.taskItem button {
+  background: transparent;
+  border: 0;
+  color: var(--gray-300);
+  cursor: pointer;
+
+  line-height: 0;
+  border-radius: 4px;
+}
+
+.taskItem button:hover {
+  color: var(--red-300);
+}

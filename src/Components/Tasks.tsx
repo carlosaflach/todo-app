@@ -1,8 +1,15 @@
+import { TaskItem } from './TaskItem';
 import styles from './Tasks.module.css';
 import { v4 as uuidv4 } from 'uuid';
 
+export interface ITask {
+	id: string;
+	task: string;
+	isChecked: boolean;
+}
+
 export const Tasks = () => {
-	const tasks = [
+	const tasks: ITask[] = [
 		{
 			id: uuidv4(),
 			task: 'Task teste',
@@ -29,11 +36,7 @@ export const Tasks = () => {
 			</section>
 			<section className={styles.tasks}>
 				{tasks.map((task) => (
-					<div key={task.id} className={styles.taskItem}>
-						<input type='checkbox' checked={task.isChecked} />
-						<p>{task.task}</p>
-						<button>Excluir task</button>
-					</div>
+					<TaskItem task={task} />
 				))}
 			</section>
 		</div>
