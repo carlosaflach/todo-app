@@ -1,17 +1,15 @@
-import { TaskItem } from './TaskItem';
-import styles from './Tasks.module.css';
-import { v4 as uuidv4 } from 'uuid';
+import { TodoItem } from './TodoItem';
+import styles from './Todos.module.css';
+// import { v4 as uuidv4 } from 'uuid';
 import Clipboard from '../assets/Clipboard.png';
+import { ITodo } from '../App';
+import { FC } from 'react';
 
-export interface ITask {
-	id: string;
-	task: string;
-	isChecked: boolean;
+interface ITodosProps {
+	todos: ITodo[];
 }
 
-export const Tasks = () => {
-	const tasks: ITask[] | [] = [];
-
+export const Todos: FC<ITodosProps> = ({ todos }) => {
 	return (
 		<div className={styles.wrapper}>
 			<section className={styles.info}>
@@ -25,8 +23,8 @@ export const Tasks = () => {
 				</div>
 			</section>
 			<section className={styles.tasks}>
-				{tasks.length > 0 ? (
-					tasks.map((task) => <TaskItem task={task} />)
+				{todos.length > 0 ? (
+					todos.map((todo) => <TodoItem todo={todo} />)
 				) : (
 					<div className={styles.empty}>
 						<img src={Clipboard} alt='' />

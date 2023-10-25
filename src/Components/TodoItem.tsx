@@ -1,23 +1,23 @@
 import { FC } from 'react';
-import styles from './TaskItem.module.css';
-import { ITask } from './Tasks';
+import styles from './TodoItem.module.css';
 import { Trash, Circle, CheckCircle } from 'phosphor-react';
+import { ITodo } from '../App';
 
 export interface TaskItemProps {
-	task: ITask;
+	todo: ITodo;
 }
 
-export const TaskItem: FC<TaskItemProps> = ({ task }) => {
+export const TodoItem: FC<TaskItemProps> = ({ todo }) => {
 	return (
-		<div key={task.id} className={styles.taskItem}>
-			<button className={task.isChecked ? styles.checked : styles.notChecked}>
-				{task.isChecked ? (
+		<div key={todo.id} className={styles.taskItem}>
+			<button className={todo.isChecked ? styles.checked : styles.notChecked}>
+				{todo.isChecked ? (
 					<CheckCircle size={24} weight='fill' />
 				) : (
 					<Circle size={24} />
 				)}
 			</button>
-			<p>{task.task}</p>
+			<p>{todo.task}</p>
 			<button className={styles.delete}>
 				<Trash size={24} />
 			</button>

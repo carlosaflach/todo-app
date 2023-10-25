@@ -1,15 +1,23 @@
 import { Header } from './Components/Header';
 import { CreateTodo } from './Components/CreateTodo';
 import './global.css';
-import { Tasks } from './Components/Tasks';
+import { Todos } from './Components/Todos';
+import { useState } from 'react';
+
+export interface ITodo {
+	id: string;
+	task: string;
+	isChecked: boolean;
+}
 
 export const App = () => {
+	const [todos, setTodos] = useState<ITodo[] | []>([]);
 	return (
 		<div>
 			<Header />
 			<main>
 				<CreateTodo />
-				<Tasks />
+				<Todos todos={todos} />
 			</main>
 		</div>
 	);
