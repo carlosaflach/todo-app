@@ -22,7 +22,7 @@ export const App = () => {
 			<Header />
 			<main>
 				<CreateTodo onCreatingTodo={setTodos} />
-				<Todos todos={todos} />
+				<Todos todos={todos} onCheckingTodo={setTodos} />
 			</main>
 		</div>
 	);
