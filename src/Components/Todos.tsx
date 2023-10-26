@@ -7,10 +7,10 @@ import { FC } from 'react';
 
 interface ITodosProps {
 	todos: ITodo[];
-	onCheckingTodo: React.Dispatch<React.SetStateAction<ITodo[] | []>>;
+	onSettingTodos: React.Dispatch<React.SetStateAction<ITodo[] | []>>;
 }
 
-export const Todos: FC<ITodosProps> = ({ todos, onCheckingTodo }) => {
+export const Todos: FC<ITodosProps> = ({ todos, onSettingTodos }) => {
 	const handleCheckingTodo = (id: string) => {
 		const newState = todos.map((todo) => {
 			if (todo.id === id) {
@@ -18,7 +18,12 @@ export const Todos: FC<ITodosProps> = ({ todos, onCheckingTodo }) => {
 			}
 			return todo;
 		});
-		onCheckingTodo(newState);
+		onSettingTodos(newState);
+	};
+
+	const handleRemoveTodo = (id: string) => {
+		const newState = todos.filter((todo) => todo.id !== id);
+		onSettingTodos(newState);
 	};
 
 	return (
@@ -36,7 +41,12 @@ export const Todos: FC<ITodosProps> = ({ todos, onCheckingTodo }) => {
 			<section className={styles.tasks}>
 				{todos.length > 0 ? (
 					todos.map((todo) => (
-						<TodoItem todo={todo} onCheckingTodo={handleCheckingTodo} />
+						<TodoItem
+							key={todo.id}
+							todo={todo}
+							onCheckingTodo={handleCheckingTodo}
+							onRemovingTodo={handleRemoveTodo}
+						/>
 					))
 				) : (
 					<div className={styles.empty}>

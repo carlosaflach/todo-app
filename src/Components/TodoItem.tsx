@@ -6,22 +6,27 @@ import { ITodo } from '../App';
 export interface TaskItemProps {
 	todo: ITodo;
 	onCheckingTodo: (id: string) => void;
+	onRemovingTodo: (id: string) => void;
 }
 
-export const TodoItem: FC<TaskItemProps> = ({ todo, onCheckingTodo }) => {
+export const TodoItem: FC<TaskItemProps> = ({
+	todo: { id, isChecked, task },
+	onCheckingTodo,
+	onRemovingTodo,
+}) => {
 	return (
-		<div key={todo.id} className={styles.taskItem}>
+		<div className={styles.taskItem}>
 			<button
-				className={todo.isChecked ? styles.checked : styles.notChecked}
-				onClick={() => onCheckingTodo(todo.id)}>
-				{todo.isChecked ? (
+				className={isChecked ? styles.checked : styles.notChecked}
+				onClick={() => onCheckingTodo(id)}>
+				{isChecked ? (
 					<CheckCircle size={24} weight='fill' />
 				) : (
 					<Circle size={24} />
 				)}
 			</button>
-			<p className={todo.isChecked ? styles.todoChecked : ''}>{todo.task}</p>
-			<button className={styles.delete}>
+			<p className={isChecked ? styles.todoChecked : ''}>{task}</p>
+			<button className={styles.delete} onClick={() => onRemovingTodo(id)}>
 				<Trash size={24} />
 			</button>
 		</div>
