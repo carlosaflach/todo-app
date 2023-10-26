@@ -2,7 +2,7 @@ import { Header } from './Components/Header';
 import { CreateTodo } from './Components/CreateTodo';
 import './global.css';
 import { Todos } from './Components/Todos';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export interface ITodo {
 	id: string;
