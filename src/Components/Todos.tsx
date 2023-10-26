@@ -26,16 +26,29 @@ export const Todos: FC<ITodosProps> = ({ todos, onSettingTodos }) => {
 		onSettingTodos(newState);
 	};
 
+	const todosCreated = todos.length;
+
+	const todosChecked = todos.reduce((acc, curr) => {
+		if (curr.isChecked) {
+			acc += 1;
+			return acc;
+		}
+		return acc;
+	}, 0);
+
 	return (
 		<div className={styles.wrapper}>
 			<section className={styles.info}>
 				<div className={styles.created}>
 					<p>Tarefas Criadas</p>
-					<span className={styles.counter}>counter</span>
+					<span className={styles.counter}>{todosCreated}</span>
 				</div>
 				<div className={styles.done}>
 					<p>Concluidas</p>
-					<span className={styles.counter}>counter</span>
+					<span
+						className={
+							styles.counter
+						}>{`${todosChecked} de ${todosCreated}`}</span>
 				</div>
 			</section>
 			<section className={styles.tasks}>
