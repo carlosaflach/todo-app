@@ -5,6 +5,25 @@
   justify-content: center;
   gap: 0.5rem;
   transform: translate(0, -1.6875rem);
+  transition: width 2s ease;
+}
+
+@media (max-width: 768px)  {
+  .container {
+    width: 40rem;
+  }
+}
+
+@media (max-width: 580px)  {
+  .container {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 375px)  {
+  .container {
+    width: 22rem;
+  }
 }
 
 .container input {

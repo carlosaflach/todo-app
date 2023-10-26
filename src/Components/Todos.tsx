@@ -1,7 +1,7 @@
 import { TodoItem } from './TodoItem';
 import styles from './Todos.module.css';
 // import { v4 as uuidv4 } from 'uuid';
-import Clipboard from '../assets/Clipboard.png';
+import Clipboard from '../assets/clipboard.svg?react';
 import { ITodo } from '../App';
 import { FC } from 'react';
 
@@ -63,7 +63,7 @@ export const Todos: FC<ITodosProps> = ({ todos, onSettingTodos }) => {
 					))
 				) : (
 					<div className={styles.empty}>
-						<img src={Clipboard} alt='Clipboard Image' />
+						<Clipboard />
 						<p>Você ainda não tem tarefas cadastradas</p>
 						<p>Crie tarefas e organize seus itens a fazer</p>
 					</div>
