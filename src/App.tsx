@@ -13,10 +13,6 @@ export interface ITodo {
 export const App = () => {
 	const [todos, setTodos] = useState<ITodo[] | []>([]);
 
-	useEffect(() => {
-		console.log('todos', todos);
-	}, [todos]);
-
 	return (
 		<div>
 			<Header />
